@@ -41,8 +41,8 @@ export default defineConfig({
   },
   root: path.resolve(import.meta.dirname),
   build: {
-    outDir: "./dist",
-    emptyOutDir: true,
+    outDir: "./build",
+    emptyOutDir: false,
   },
   server: {
     port,
