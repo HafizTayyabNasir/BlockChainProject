@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm --filter @workspace/tictactoe run build",
+  "buildCommand": "pnpm --filter @workspace/tictactoe run build && ls -la artifacts/tictactoe/dist",
   "outputDirectory": "artifacts/tictactoe/dist",
   "installCommand": "pnpm install",
   "framework": null,
