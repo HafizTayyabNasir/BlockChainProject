@@ -19,8 +19,6 @@ function _resolveComponent(
   );
 }
 
-
-
 function PreviewRenderer({
   componentPath,
   modules,
