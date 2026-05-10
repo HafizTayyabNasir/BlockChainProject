@@ -42,14 +42,14 @@ function Router() {
 }
 
 function AppContent() {
-  const { isAuthenticated } = useAuth();
-  
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <GameProvider>
           <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-            {isAuthenticated ? <Layout><Router /></Layout> : <Router />}
+            <Layout>
+              <Router />
+            </Layout>
           </WouterRouter>
         </GameProvider>
         <Toaster />
