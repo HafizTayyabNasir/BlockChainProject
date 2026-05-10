@@ -1,6 +1,7 @@
 {
-  "buildCommand": "pnpm --filter @workspace/tictactoe run build && pwd && ls -la artifacts/tictactoe/ && find . -name 'index.html' -type f",
-  "outputDirectory": "artifacts/tictactoe/dist",
+  "root": "artifacts/tictactoe",
+  "buildCommand": "pnpm run build",
+  "outputDirectory": "dist",
   "installCommand": "pnpm install",
   "framework": null,
   "env": {
