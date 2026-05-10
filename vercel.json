@@ -1,6 +1,6 @@
 {
   "buildCommand": "pnpm --filter @workspace/tictactoe run build",
-  "outputDirectory": "artifacts/tictactoe/public",
+  "outputDirectory": ".vercel/output/static",
   "installCommand": "pnpm install",
   "framework": null,
   "env": {
