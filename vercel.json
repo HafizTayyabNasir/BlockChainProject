@@ -1,6 +1,6 @@
 {
-  "buildCommand": "pnpm --filter @workspace/tictactoe run build; mkdir -p build_output; cp -r artifacts/tictactoe/build/* build_output/",
-  "outputDirectory": "build_output",
+  "buildCommand": "pnpm --filter @workspace/tictactoe run build",
+  "outputDirectory": "dist",
   "installCommand": "pnpm install",
   "framework": null,
   "env": {
