@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm --filter @workspace/tictactoe run build && mkdir -p public && cp -r artifacts/tictactoe/dist/* public/ || true",
+  "buildCommand": "pnpm --filter @workspace/tictactoe run build && mkdir -p public && cp -r ./artifacts/tictactoe/dist/* public/ || true",
   "outputDirectory": "public",
   "installCommand": "pnpm install",
   "framework": null,
