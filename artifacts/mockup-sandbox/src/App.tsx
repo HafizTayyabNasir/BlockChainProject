@@ -20,7 +20,6 @@ function _resolveComponent(
 }
 
 
-// Sample commmetn
 
 function PreviewRenderer({
   componentPath,
