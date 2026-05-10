@@ -1,6 +1,6 @@
 {
   "buildCommand": "pnpm --filter @workspace/tictactoe run build",
-  "outputDirectory": "tictactoe-dist",
+  "outputDirectory": "../../tictactoe-dist",
   "installCommand": "pnpm install",
   "framework": null,
   "env": {
