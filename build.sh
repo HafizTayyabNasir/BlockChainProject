@@ -2,11 +2,11 @@
 set -e
 
 # Build tictactoe app
-cd artifacts/tictactoe
-pnpm run build
+pnpm --filter @workspace/tictactoe run build
 
-# Create output directory at root level for Vercel
-mkdir -p ../../.output/dist
-cp -r dist/* ../../.output/dist/
+# Move dist folder to public
+mkdir -p public
+mv artifacts/tictactoe/dist/* public/
 
-echo "Build completed. Output ready at .output/dist"
+echo "Build completed successfully. Output at public/"
+
