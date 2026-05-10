@@ -1,0 +1,13 @@
+{
+  "buildCommand": "pnpm --filter @workspace/tictactoe run build",
+  "outputDirectory": "artifacts/tictactoe/dist/public",
+  "installCommand": "pnpm install",
+  "framework": null,
+  "env": {
+    "NODE_ENV": "production",
+    "BASE_PATH": "/"
+  },
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
