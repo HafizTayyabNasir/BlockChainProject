@@ -14,7 +14,7 @@ import {
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
-  const { user, logout } = useAuth();
+  const { user, logout, isAuthenticated } = useAuth();
 
   return (
     <div className="min-h-screen flex flex-col w-full text-foreground bg-background selection:bg-primary/30">
@@ -28,15 +28,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </div>
           
           <nav className="flex items-center gap-1 bg-muted/50 p-1 rounded-lg border border-border/50">
-            <Link href="/" className={cn(
-              "flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium transition-colors",
-              location === "/" 
-                ? "bg-background shadow-sm text-foreground" 
-                : "text-muted-foreground hover:text-foreground hover:bg-muted"
-            )}>
-              <LayoutDashboard className="w-4 h-4" />
-              <span className="hidden sm:inline">Game</span>
-            </Link>
+            {isAuthenticated && (
+              <Link href="/" className={cn(
+                "flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium transition-colors",
+                location === "/" 
+                  ? "bg-background shadow-sm text-foreground" 
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted"
+              )}>
+                <LayoutDashboard className="w-4 h-4" />
+                <span className="hidden sm:inline">Game</span>
+              </Link>
+            )}
             <Link href="/blockchain" className={cn(
               "flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium transition-colors",
               location === "/blockchain" 
@@ -48,7 +50,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </Link>
           </nav>
 
-          {user && (
+          {isAuthenticated ? (
             <div className="flex items-center gap-4">
               <Link href="/payment" className={cn(
                 "flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium transition-colors",
@@ -64,14 +66,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <DropdownMenuTrigger asChild>
                   <Button variant="outline" size="sm" className="gap-2">
                     <User className="w-4 h-4" />
-                    <span className="hidden sm:inline">{user.username}</span>
+                    <span className="hidden sm:inline">{user?.username}</span>
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                   <DropdownMenuItem disabled>
-                    <span className="text-xs text-muted-foreground">{user.email}</span>
+                    <span className="text-xs text-muted-foreground">{user?.email}</span>
                   </DropdownMenuItem>
-                  {user.walletAddress && (
+                  {user?.walletAddress && (
                     <DropdownMenuItem disabled>
                       <span className="text-xs text-muted-foreground">
                         {user.walletAddress.slice(0, 6)}...{user.walletAddress.slice(-4)}
@@ -91,6 +93,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
+            </div>
+          ) : (
+            <div className="flex items-center gap-2">
+              <Link href="/login">
+                <Button variant="outline" size="sm">Login</Button>
+              </Link>
+              <Link href="/signup">
+                <Button size="sm">Sign Up</Button>
+              </Link>
             </div>
           )}
         </div>
