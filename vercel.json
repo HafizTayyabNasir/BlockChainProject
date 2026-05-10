@@ -1,7 +1,6 @@
 {
-  "root": "artifacts/tictactoe",
-  "buildCommand": "pnpm run build",
-  "outputDirectory": "dist",
+  "buildCommand": "pnpm --filter @workspace/tictactoe run build",
+  "outputDirectory": "artifacts/tictactoe/dist",
   "installCommand": "pnpm install",
   "framework": null,
   "env": {
